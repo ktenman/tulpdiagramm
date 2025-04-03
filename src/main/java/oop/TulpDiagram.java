@@ -1,9 +1,17 @@
 package oop;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -34,6 +42,33 @@ public class TulpDiagram extends Application {
         Scene scene = new Scene(juur, laius, kõrgus, Color.SNOW);
         stage.setTitle("Tulpdiagramm");
         stage.setScene(scene);
+        stage.show();
+
+//        joonistaSlaidiAsjad(stage);
+    }
+
+    private void joonistaSlaidiAsjad(Stage stage) {
+        BorderPane border = new BorderPane();
+        TextField tekst = new TextField("mingi tekst");
+        border.setTop(tekst);
+        ListView<String> list = new ListView<String>();
+        ObservableList<String> items = FXCollections.observableArrayList (
+                "Esimene", "Teine", "Kolmas", "Neljas");
+        list.setItems(items);
+        border.setCenter(list);
+        BorderPane border2 = new BorderPane();
+        Button nupp1 = new Button("1");
+        border2.setLeft(nupp1);
+        Button nupp2 = new Button("2");
+        border2.setRight(nupp2);
+        HBox hbox = new HBox();
+        Label silt1 = new Label("silt1");
+        Label silt2 = new Label("silt2");
+        hbox.getChildren().addAll(silt1, silt2);
+        border2.setCenter(hbox);
+        border.setBottom(border2);
+        Scene stseen1 = new Scene(border, 300, 150, Color.SNOW);
+        stage.setScene(stseen1);
         stage.show();
     }
 
