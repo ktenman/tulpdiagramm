@@ -15,7 +15,7 @@ import java.util.List;
 public class TulpDiagram extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
         List<Integer> values = List.of(45, 78, 69, 21, 33, 96, 47, 10, 76, 50);
         int laius = 535;
         int kõrgus = 535;
@@ -32,9 +32,9 @@ public class TulpDiagram extends Application {
         juur.getChildren().add(canvas);
 
         Scene scene = new Scene(juur, laius, kõrgus, Color.SNOW);
-        primaryStage.setTitle("Tulpdiagramm");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("Tulpdiagramm");
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void joonistaTulbad(GraphicsContext graphicsContext, List<Integer> values) {
